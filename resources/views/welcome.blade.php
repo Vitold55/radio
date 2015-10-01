@@ -18,11 +18,15 @@
                 font-weight: 100;
                 font-family: 'Lato';
             }
-
+            header{
+                text-align: center;
+                font-size: 30px;
+                font-weight: bold;
+                padding: 30px 0;
+                margin-bottom: 100px;
+            }
             .container {
                 text-align: center;
-                display: table-cell;
-                vertical-align: middle;
             }
 
             .content {
@@ -36,6 +40,9 @@
         </style>
     </head>
     <body>
+        <header>
+            Hello! This is my radio
+        </header>
         <div class="container">
             <div class="content">
                 <div class="title">Laravel 5</div>
