@@ -2,6 +2,7 @@
 <html>
     <head>
         <title>Laravel</title>
+        <link rel="shortcut icon" href="/public/favicon.ico" type="image/x-icon">
 
         <link href="https://fonts.googleapis.com/css?family=Lato:100" rel="stylesheet" type="text/css">
 
@@ -40,6 +41,9 @@
         </style>
     </head>
     <body>
+        <?php
+            echo __DIR__;
+        ?>
         <header>
             Hello! This is my radio
         </header>
