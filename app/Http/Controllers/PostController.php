@@ -32,6 +32,7 @@ class PostController extends BaseController
         $mala = "Kaka";
         $polo = 55;
 
+        $vava = 9;
         $bla = 666;
 
         return view('post.user')->with([
