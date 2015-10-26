@@ -27,7 +27,7 @@ class PostController extends BaseController
     }
 
     public function user($name, $id) {
-        $aqua = "Hello";
+        $aqua = "Hello TryGIT";
         return view('post.user')->with([
             'name' => $name,
             'id' => $id,
