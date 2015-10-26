@@ -1,11 +1,18 @@
-<?php foreach($posts as $post) : ?>
-    <article>
-        <h2><?=$post->title?></h2>
-        <p>
-            {!! $post->excerpt !!}
-        </p>
-        <p>
-            published: {{ $post->published_at }}
-        </p>
-    </article>
-<?php endforeach; ?>
+@extends('app')
+
+@section('content')
+
+    <?php foreach($posts as $post) : ?>
+        <article>
+            <h2><?=$post->title?></h2>
+            <p>
+                {!! $post->excerpt !!}
+            </p>
+            <p>
+                published: {{ $post->published_at }}
+            </p>
+        </article>
+    <?php endforeach; ?>
+
+@stop
+    
