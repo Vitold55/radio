@@ -27,18 +27,9 @@ class PostController extends BaseController
     }
 
     public function user($name, $id) {
-        $aqua = "Hello TryGIT";
-
-        $mala = "Kaka";
-        $polo = 55;
-
-        $vava = 9;
-        $bla = 666;
-
         return view('post.user')->with([
             'name' => $name,
             'id' => $id,
         ]);
-        $rat = 55;
     }
 }
