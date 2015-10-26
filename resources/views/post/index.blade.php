@@ -1,4 +1,11 @@
-My name is Victor
-<?php
-    echo "<h2>Gala</h2>";
-?>
+<?php foreach($posts as $post) : ?>
+    <article>
+        <h2><?=$post->title?></h2>
+        <p>
+            {!! $post->excerpt !!}
+        </p>
+        <p>
+            published: {{ $post->published_at }}
+        </p>
+    </article>
+<?php endforeach; ?>

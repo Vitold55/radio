@@ -7,11 +7,23 @@ use Illuminate\Routing\Controller as BaseController;
 use Illuminate\Foundation\Validation\ValidatesRequests;
 use Illuminate\Foundation\Auth\Access\AuthorizesRequests;
 use Illuminate\Contracts\View\View;
+use App\Models\Post;
+use Carbon\Carbon;
 
 class PostController extends BaseController
 {
     public function index() {
-        return view('post.index');
+
+        //$posts = Post::all();
+        //$posts = Post::latest('id')->get();
+        //$posts = Post::latest('published_at')->get();
+        $posts = Post::latest('published_at')
+            ->where('published_at', '<=', Carbon::now('Europe/Kiev'))
+            ->get();
+
+        return view('post.index',[
+            'posts' => $posts,
+        ]);
     }
 
     public function user($name, $id) {

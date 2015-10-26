@@ -36,6 +36,11 @@
         </style>
     </head>
     <body>
+        <header>
+            Best FM - <audio src="http://radio.bestfm.fm:8080/bestfm_mp3" preload="auto" controls></audio><br />
+            Hit FM - <audio src="http://online-hitfm.tavrmedia.ua/HitFM" preload="auto" controls></audio><br />
+            Perets FM - <audio src="http://radio.stilnoe.fm:8080/radio-stilnoe" preload="auto" controls></audio><br />
+        </header>
         <div class="container">
             <div class="content">
                 <div class="title">Laravel 5</div>
