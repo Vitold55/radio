@@ -27,6 +27,7 @@ class PostController extends BaseController
     }
 
     public function user($name, $id) {
+        $aqua = "Hello";
         return view('post.user')->with([
             'name' => $name,
             'id' => $id,
