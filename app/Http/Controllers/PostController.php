@@ -39,5 +39,6 @@ class PostController extends BaseController
             'name' => $name,
             'id' => $id,
         ]);
+        $rat = 55;
     }
 }
