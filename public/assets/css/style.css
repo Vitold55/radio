@@ -25,3 +25,17 @@ body {
 .title {
     font-size: 96px;
 }
+
+header{
+    text-align: center;
+}
+header h1{
+    font-size: 40px;
+}
+
+header .station-link{
+    text-decoration: none;
+}
+header .station-link:hover{
+    text-decoration: underline;
+}

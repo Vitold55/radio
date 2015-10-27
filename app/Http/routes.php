@@ -4,6 +4,10 @@ Route::get('/', function () {
     return view('wellcome');
 });
 
+Route::get('/stations', function () {
+    return view('stations');
+});
+
 Route::get('/tt', [
     'as' => 'post',
     'uses' => 'PostController@index'
