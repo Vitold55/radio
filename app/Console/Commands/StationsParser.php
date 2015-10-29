@@ -3,6 +3,7 @@
 namespace App\Console\Commands;
 
 use Illuminate\Console\Command;
+use Guzzle\Http\Client;
 
 class StationsParser extends Command
 {
@@ -36,6 +37,11 @@ class StationsParser extends Command
     }
 
     private function parseStations() {
-        phpinfo();
+        $client = new Client();
+        $request = $client->get("http://lovi.fm/category/76/");
+        $response = $request->send();
+
+        $body = $response->getBody();
+        echo $body;
     }
 }
