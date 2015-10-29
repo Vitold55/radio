@@ -51,7 +51,6 @@
     },
     "config": {
         "preferred-install": "dist",
-        "vendor-dir": "vendor",
         "component-dir": "public/assets/js/libs"
     }
 }
