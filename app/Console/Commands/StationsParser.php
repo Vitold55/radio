@@ -42,6 +42,10 @@ class StationsParser extends Command
         $response = $request->send();
 
         $body = $response->getBody();
-        echo $body;
+
+        preg_match('/\<ul/iU', $body, $ulBlock);
+
+        echo "<pre>";
+        die(var_dump($ulBlock));
     }
 }
