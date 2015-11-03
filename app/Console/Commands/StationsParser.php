@@ -3,7 +3,7 @@
 namespace App\Console\Commands;
 
 use Illuminate\Console\Command;
-use Guzzle\Http\Client;
+use GuzzleHttp\Client;
 
 class StationsParser extends Command
 {
@@ -38,14 +38,24 @@ class StationsParser extends Command
 
     private function parseStations() {
         $client = new Client();
-        $request = $client->get("http://lovi.fm/category/76/");
-        $response = $request->send();
+        $response = $client->get("http://lovi.fm/category/76/");
 
-        $body = $response->getBody();
+        $body = $response->getBody()->getContents();
 
-        preg_match('/\<ul/iU', $body, $ulBlock);
+        preg_match_all('/data-link=\".*\"/', $body, $ulBlock);
 
-        echo "<pre>";
-        die(var_dump($ulBlock));
+        foreach($ulBlock[0] as $station) {
+            preg_match('/http[^\"]*/', $station, $source);
+
+            preg_match('/name=".*[^\"]*/', $station, $fullName);
+            preg_match('/[A-ZА-Я][^\-\"|\d|(]*/', $fullName[0], $name);
+            preg_match('/\d[^\s]*/', $fullName[0], $frequency);
+            preg_match('/\(\w*[^\)]*/', $fullName[0], $city);
+
+            $stationSource = $source[0];
+            $stationName = trim($name[0]);
+            $stationFrequency = !empty($frequency) ? $frequency[0] : null;
+            $stationCity = !empty($city) ? substr($city[0], 1) : null;
+        }
     }
 }
