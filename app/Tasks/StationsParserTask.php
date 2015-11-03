@@ -3,6 +3,7 @@
 namespace App\Tasks;
 
 use GuzzleHttp\Client;
+use App\Models\Stations;
 
 class StationsParserTask
 {
@@ -29,18 +30,21 @@ class StationsParserTask
             $stationFrequency = !empty($frequency) ? $frequency[0] : null;
             $stationCity = !empty($city) ? substr($city[0], 1) : null;
 
-            $result = \DB::table('stations')->insert([
-                'source' => $stationSource,
-                'name' => $stationName,
-                'frequency' => $stationFrequency,
-                'city' => $stationCity,
-                'rating' => $rating,
-                'country' => $stationsUrl['countryId']
-            ]);
+            if (empty(Stations::where('name', '=', $stationName)->get()->toArray())) {
 
-            if (isset($result)) {
-                echo "Insert station " . $stationName . "\r\n";
-                $rating++;
+                $result = Stations::insert([
+                    'source' => $stationSource,
+                    'name' => $stationName,
+                    'frequency' => $stationFrequency,
+                    'city' => $stationCity,
+                    'rating' => $rating,
+                    'country' => $stationsUrl['countryId']
+                ]);
+
+                if (isset($result)) {
+                    echo "Insert station " . $stationName . "\r\n";
+                    $rating++;
+                }
             }
         }
 

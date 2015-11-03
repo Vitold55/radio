@@ -4,9 +4,10 @@ Route::get('/', function () {
     return view('wellcome');
 });
 
-Route::get('/stations', function () {
-    return view('stations');
-});
+Route::get('/stations', [
+    'as' => 'stations:index',
+    'uses' => 'StationsController@index'
+]);
 
 Route::get('/tt', [
     'as' => 'post',
