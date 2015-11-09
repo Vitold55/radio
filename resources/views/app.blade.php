@@ -5,6 +5,9 @@
 
         <link href="https://fonts.googleapis.com/css?family=Lato:100" rel="stylesheet" type="text/css">
         <link href="<?=asset('/assets/css/style.css')?>" rel="stylesheet" type="text/css">
+        <script type="text/javascript" src="<?=asset('/assets/js/libs/jquery.min.js')?>"></script>
+        <script type="text/javascript" src="<?=asset('/assets/js/script.js')?>"></script>
+        <script type="text/javascript" src="<?=asset('/assets/js/libs/jquery.jplayer.js')?>"></script>
     </head>
     <body>
         <header>
