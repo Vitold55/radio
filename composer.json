@@ -36,7 +36,9 @@
             "php artisan optimize"
         ],
         "pre-update-cmd": [
-            "php artisan clear-compiled"
+            "php artisan clear-compiled",
+            "php artisan ide-helper:generate",
+            "php artisan optimize"
         ],
         "post-update-cmd": [
             "php artisan optimize",
@@ -47,6 +49,7 @@
             "php -r \"copy('.env.example', '.env');\""
         ],
         "post-create-project-cmd": [
+            "php -r \"copy('.env.example', '.env');\"",
             "php artisan key:generate"
         ]
     },
