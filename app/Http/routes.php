@@ -18,3 +18,8 @@ Route::get('/user/{name}/{id}', [
     'as' => 'user',
     'uses' => 'PostController@user'
 ])->where('name', '[A-Za-z]+')->where('id', '[0-9]+');
+
+Route::get('/player', [
+    'as' => 'stations:player',
+    'uses' => 'StationsController@player'
+]);

@@ -19,4 +19,8 @@ class StationsController extends BaseController
         ]);
     }
 
+    public function player() {
+        return view('stations.player');
+    }
+
 }
