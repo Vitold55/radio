@@ -267,10 +267,9 @@ Documentation: www.happyworm.com/jquery/jplayer
 		},
 		volumeBar: function(e) {
 			var vbId = $(this).data("jPlayer.cssId.volumeBar");
-			console.log(vbId);
+
 			if( vbId != null ) {
 				var offset = $("#"+vbId).offset();
-				console.log(e.pageX, offset.left);
 				var x = e.pageX - offset.left;
 				var w = $("#"+vbId).width();
 				var p = 100*x/w;

@@ -2,7 +2,6 @@
 
 @section('content')
 
-
     <div style="margin: 10px 0 30px;">
         <div>
             <input id="play" type="button" value="Play" />
@@ -17,7 +16,7 @@
 
     <script type="text/javascript">
         // Создаем новый объект Audio
-        var audio = new Audio('http://s2.radioheart.ru:8006/listen');
+        var audio = new Audio('http://radio.bestfm.fm:8080/bestfm_mp3');
 
         // Добавляем к кнопке с идентификатором "play" обработчик события onclick, внутри которого вызывается метод play
         var play = document.getElementById('play');
