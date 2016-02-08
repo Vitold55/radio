@@ -1,13 +1,11 @@
 // Initialization player function
 function initPlayer(source) {
     $("#jplayer").jPlayer({
-        preload: 'auto',
-        ready: function(){
-            this.element.jPlayer("setFile", source);
+        ready: function () {
+            $("#jplayer").change(source);
         },
-
         swfPath: 'libs/Jplayer',
-        solution: 'html, aurora, flash'
+        solution: 'html, flash'
     });
     $("#jplayer").jPlayerId("play", "player_play");
     $("#jplayer").jPlayerId("pause", "player_pause");
@@ -17,10 +15,11 @@ function initPlayer(source) {
     $("#jplayer").jPlayerId("volumeBar", "player_volume_bar");
     $("#jplayer").jPlayerId("volumeBarValue", "player_volume_bar_value");
 
-    $("#jquery_jplayer").onSoundComplete(function () {
-        $("#jquery_jplayer").play();
+    $("#jplayer").onSoundComplete(function () {
+        $("#jplayer").play();
     });
 }
+
 
 $(document).ready(function() {
     initPlayer('http://online-kissfm.tavrmedia.ua/KissFM');
@@ -32,7 +31,7 @@ $(document).ready(function() {
         $("#song_title").text(name);
         $("#jplayer").jPlayer("clearFile");
         $('#jplayer').jPlayer("setFile", source);
-        $('#jPlayer').play();
-
+        //$('#jplayer').stop();
+        //$('#jplayer').play();
     });
 });
