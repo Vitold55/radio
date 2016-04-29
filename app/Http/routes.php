@@ -1,8 +1,9 @@
 <?php
 
-Route::get('/', function () {
-    return view('wellcome');
-});
+Route::get('/', [
+    'as' => 'stations:player',
+    'uses' => 'StationsController@player'
+]);
 
 Route::get('/stations', [
     'as' => 'stations:index',

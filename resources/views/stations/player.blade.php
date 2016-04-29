@@ -4,6 +4,7 @@
 
     <div style="margin: 10px 0 30px;">
         <div>
+            <span class="sourceName">Best FM:</span>
             <input id="play" type="button" value="Play" />
             <input id="pause" type="button" value="Pause" />
             <span id="duration"> </span>
@@ -44,5 +45,13 @@
             duration.innerHTML = m + '.' + s + 'sec';
         }, false);
     </script>
+
+    <div class="stationsList">
+        <ul>
+            <?php foreach ($stations as $station) : ?>
+                <li><a class="station-source" href="javascript:void(0);" data-source="<?=$station['source']?>" data-name="<?=$station['name']?>"><?=$station['name']?></a></li>
+            <?php endforeach; ?>
+        </ul>
+    </div>
 
 @stop

@@ -20,7 +20,14 @@ class StationsController extends BaseController
     }
 
     public function player() {
-        return view('stations.player');
+        $stations = Stations::where('available', '=', 1)
+            ->orderBy('id', 'asc')
+            ->get()
+            ->toArray();
+
+        return view('stations.player', [
+            'stations' => $stations,
+        ]);
     }
 
 }

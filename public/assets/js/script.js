@@ -1,5 +1,5 @@
 // Initialization player function
-function initPlayer(source) {
+/*function initPlayer(source) {
     $("#jplayer").jPlayer({
         ready: function () {
             $("#jplayer").change(source);
@@ -18,11 +18,11 @@ function initPlayer(source) {
     $("#jplayer").onSoundComplete(function () {
         $("#jplayer").play();
     });
-}
+}*/
 
 
 $(document).ready(function() {
-    initPlayer('http://online-kissfm.tavrmedia.ua/KissFM');
+    /*initPlayer('http://online-kissfm.tavrmedia.ua/KissFM');
 
     $("#radioSource a").click(function() {
         var source = $(this).data("source");
@@ -33,5 +33,24 @@ $(document).ready(function() {
         $('#jplayer').jPlayer("setFile", source);
         //$('#jplayer').stop();
         //$('#jplayer').play();
+    });*/
+
+    // Change station on Player
+    $(".station-source").click(function() {
+        var source = $(this).data('source');
+        var name = $(this).attr('data-name');
+        if (audio) {
+            audio.pause();
+        }
+        if (audio.paused) {
+            try {
+                audio = new Audio(source);
+                audio.play();
+                $('.sourceName').text(name + ':');
+            }
+            catch(e) {
+                alert("Error");
+            }
+        }
     });
 });

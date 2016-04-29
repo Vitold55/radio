@@ -18,7 +18,9 @@ body {
 
 .content {
     text-align: center;
-    display: inline-block;
+    display: block;
+    width: 1000px;
+    margin: 0 auto;
 }
 
 .title {
@@ -173,4 +175,25 @@ header .station-link:hover{
 }
 .miaow a:link, a:visited, a:hover, a:focus, a:active {
     color: #009be3;
+}
+
+.stationsList ul{
+    margin: 0;
+    padding: 0;
+}
+.stationsList ul li{
+    list-style: none;
+    text-align: left;
+    padding: 5px 20px 5px 0;
+    float: left;
+}
+.stationsList ul li a{
+    color: #1E347B;
+    text-decoration: none;
+    font-family: Arial, sans-serif;
+}
+.sourceName{
+    font-family: Arial, sans-serif;
+    color: #009be3;
+    padding-right: 15px;
 }
