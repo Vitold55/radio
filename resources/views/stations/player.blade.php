@@ -2,16 +2,18 @@
 
 @section('content')
 
-    <div style="margin: 10px 0 30px;">
-        <div>
-            <span class="sourceName">Best FM:</span>
-            <input id="play" type="button" value="Play" />
-            <input id="pause" type="button" value="Pause" />
-            <span id="duration"> </span>
-        </div>
-        <div>
-            Громкость:
-            <input id="volume" type="range" min="0" max="100" value="30" />
+    <div class="player">
+        <div class="row">
+            <div class="col-md-5 col-md-offset-1">
+                <span class="sourceName">Best FM:</span>
+            </div>
+            <div class="col-md-2">
+                <input id="play" type="button" value="Play" />
+                <input id="pause" type="button" value="Pause" />
+            </div>
+            <div class="col-md-4 volume-block">
+                <input id="volume" type="range" min="0" max="100" value="30" />
+            </div>
         </div>
     </div>
 
@@ -37,13 +39,6 @@
             audio.volume = parseFloat(this.value / 100);
         }, false);
 
-        // Добавить обработчик события timeupdate для вывода времени воспроизведения
-        audio.addEventListener("timeupdate", function() {
-            var duration = document.getElementById('duration');
-            var s = parseInt(audio.currentTime % 60);
-            var m = parseInt((audio.currentTime / 60) % 60);
-            duration.innerHTML = m + '.' + s + 'sec';
-        }, false);
     </script>
 
     <div class="stationsList">
