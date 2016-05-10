@@ -21,7 +21,7 @@ class StationsController extends BaseController
 
     public function player() {
         $stations = Stations::where('available', '=', 1)
-            ->orderBy('id', 'asc')
+            ->orderBy('rating', 'asc')
             ->get()
             ->toArray();
 
