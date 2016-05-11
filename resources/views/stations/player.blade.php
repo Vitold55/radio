@@ -50,7 +50,15 @@
     <div class="stationsList">
         <ul>
             <?php foreach ($stations as $station) : ?>
-                <li><a class="station-source" href="javascript:void(0);" data-source="<?=$station['source']?>" data-name="<?=$station['name']?>"><?=$station['name']?></a></li>
+                <li class="col-md-4 col-sm-6 col-xs-12"><a class="station-source" href="javascript:void(0);" data-source="<?=$station['source']?>" data-name="<?=$station['name']?>">
+                        <div class="logo-bl col-md-6">
+                            <img class="logo-img" src="/assets/images/logos/<?php echo $station['logo'] != null ? $station['logo'] : 'noimg' ?>.jpg" alt="<?=$station['name']?>">
+                        </div>
+                        <div class="station-name-bl col-md-5  col-md-offset-1">
+                            <?=$station['name']?>
+                        </div>
+                    </a>
+                </li>
             <?php endforeach; ?>
         </ul>
     </div>

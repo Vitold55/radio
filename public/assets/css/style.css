@@ -19,7 +19,6 @@ body {
 .content {
     text-align: center;
     display: block;
-    width: 1000px;
     margin: 0 auto;
 }
 
@@ -102,7 +101,7 @@ header .station-link:hover{
 }
 .player_progress_load_bar {
     background: url("images/bar_load.gif")  top left repeat-x;
-    width:0px;
+    width:0;
     height:15px;
     cursor: pointer;
 }
@@ -111,7 +110,7 @@ header .station-link:hover{
 }
 .player_progress_play_bar {
     background: url("images/bar_play.gif") top left repeat-x ;
-    width:0px;
+    width:0;
     height:15px;
 }
 .player_volume_min {
@@ -184,7 +183,7 @@ header .station-link:hover{
 .stationsList ul li{
     list-style: none;
     text-align: left;
-    padding: 5px 20px 5px 0;
+    padding: 5px 10px 5px 0;
     float: left;
 }
 .stationsList ul li a{
@@ -235,4 +234,39 @@ header .station-link:hover{
 .volume-block{
     background: url('../images/verstka/volume-icon.png') no-repeat 35px 12px;
     background-size: 18px;
+}
+
+.logo-bl{
+    max-width: 150px;
+}
+.logo-bl .logo-img{
+    width: 150px;
+}
+.stationsList ul>li{
+    border-radius: 2px;
+    box-shadow: 0 0 5px rgba(0, 155, 227, 0.7);
+    margin-bottom: 15px;
+}
+.station-name-bl{}
+
+/* Small devices (tablets, 768px and up) */
+@media (min-width: 768px) and (max-width: 991px) {
+    .col-sm-6{
+        width: 49%;
+        margin-right: 2%;
+    }
+    .col-sm-6:nth-child(2n){
+        margin-right: 0;
+    }
+}
+
+/* Medium devices (desktops, 992px and up) */
+@media (min-width: 992px) {
+    .col-md-4{
+        width: 32%;
+        margin-right: 2%;
+    }
+    .col-md-4:nth-child(3n){
+        margin-right: 0;
+    }
 }
