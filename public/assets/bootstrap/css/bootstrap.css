@@ -6038,7 +6038,7 @@ button.close {
   z-index: 1070;
   display: block;
   font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
-  font-size: 12px;
+  font-size: 16px;
   font-style: normal;
   font-weight: normal;
   line-height: 1.42857143;
@@ -6079,7 +6079,7 @@ button.close {
 }
 .tooltip-inner {
   max-width: 200px;
-  padding: 3px 8px;
+  padding: 5px 12px;
   color: #fff;
   text-align: center;
   background-color: #000;

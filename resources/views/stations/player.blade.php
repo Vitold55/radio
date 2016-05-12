@@ -5,6 +5,7 @@
     <div class="player">
         <div class="row">
             <div class="col-md-5">
+                <img src="/assets/images/logos/<?=$stations[0]['logo']?>.jpg" alt="<?=$stations[0]['name']?>" class="logoInPlayer">
                 <span class="sourceName"><?=$stations[0]['name']?>:</span>
             </div>
             <div class="col-md-2">
@@ -31,12 +32,14 @@
                 }
                 audio.volume = parseFloat(volumeEl.value / 100);
                 audio.play();
+                togglePlayButton();
             }, false);
 
             // Находим кнопку и прикрепляем метод на событие onclick
             var pause = document.getElementById('pause');
             pause.addEventListener('click', function () {
                 audio.pause();
+                togglePlayButton();
             }, false);
 
             // Найти HTML5-элемент input типа range и добавить обработчик события onchange для настройки звука
@@ -50,14 +53,10 @@
     <div class="stationsList">
         <ul>
             <?php foreach ($stations as $station) : ?>
-                <li class="col-md-4 col-sm-6 col-xs-12"><a class="station-source" href="javascript:void(0);" data-source="<?=$station['source']?>" data-name="<?=$station['name']?>">
-                        <div class="logo-bl col-md-6">
+                <li class="col-lg-2 col-md-3 col-sm-3 col-xs-6 station-source" data-toggle="tooltip" data-placement="top" title="<?=$station['name']?>" data-source="<?=$station['source']?>" data-name="<?=$station['name']?>" data-logo="<?=$station['logo']?>">
+                        <div class="logo-bl">
                             <img class="logo-img" src="/assets/images/logos/<?php echo $station['logo'] != null ? $station['logo'] : 'noimg' ?>.jpg" alt="<?=$station['name']?>">
                         </div>
-                        <div class="station-name-bl col-md-5  col-md-offset-1">
-                            <?=$station['name']?>
-                        </div>
-                    </a>
                 </li>
             <?php endforeach; ?>
         </ul>

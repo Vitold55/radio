@@ -9,6 +9,7 @@ $(document).ready(function() {
     $(".station-source").click(function() {
         var source = $(this).data('source');
         var name = $(this).attr('data-name');
+        var logo = $(this).attr('data-logo');
         if (audio) {
             /*try {*/
                 audio.setAttribute('src', source);
@@ -17,10 +18,26 @@ $(document).ready(function() {
                 audio.volume = parseFloat(volume / 100);
                 audio.play();
                 $('.sourceName').text(name + ':');
+                $('.logoInPlayer').attr('src', '/assets/images/logos/' + logo + '.jpg');
+                $('.logoInPlayer').attr('alt', name);
+
+                togglePlayButton();
             /*}
             catch(e) {
                 alert("Error");
             }*/
         }
+
+
     });
+
+    $('[data-toggle="tooltip"]').tooltip();
 });
+
+function togglePlayButton() {
+    if (!audio.paused) {
+        $("#play").hide();
+    } else {
+        $("#play").show();
+    }
+}
