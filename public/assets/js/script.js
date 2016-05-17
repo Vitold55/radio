@@ -31,7 +31,19 @@ $(document).ready(function() {
 
     });
 
+    // Init bootstrap tooltips
     $('[data-toggle="tooltip"]').tooltip();
+
+    // Menu animation
+    $(".menu_btn").on("click", function(){
+        $(this).toggleClass("close_button").closest("body").find(".overlayBox").toggleClass("show");
+        $("header>div").first().toggleClass("header-wrap-fixed");
+        var contWidth = $(".container").width();
+        $(".header-wrap-fixed").width(contWidth);
+    });
+    $(".menu_sublist_caption").on("click", function(){
+        $(this).toggleClass("clicked").closest(".m__menu_item").find(".m__menu_sublist").slideToggle();
+    });
 });
 
 function togglePlayButton() {

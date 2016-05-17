@@ -60,6 +60,7 @@
                 </li>
             <?php endforeach; ?>
         </ul>
+        <div class="clear"></div>
     </div>
 
 @stop
