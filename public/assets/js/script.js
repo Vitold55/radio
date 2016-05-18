@@ -44,6 +44,37 @@ $(document).ready(function() {
     $(".menu_sublist_caption").on("click", function(){
         $(this).toggleClass("clicked").closest(".m__menu_item").find(".m__menu_sublist").slideToggle();
     });
+
+    // Fix player on top while scrolling page
+    $(window).scroll(function(){
+        if (!$(".overlayBox").hasClass("show")) {
+            fixPlayerOnScrolling();
+        }
+    });
+    $(".close_button").click(function(){
+        if (!$(".overlayBox").hasClass("show")) {
+            fixPlayerOnScrolling();
+        }
+    });
+    function fixPlayerOnScrolling() {
+        var h_hght = 125; // висота шапки
+        var h_mrg = 0;
+        var elem = $('#player');
+        var top = $(this).scrollTop();
+        var pageWidth = $(".container").width();
+
+        if(top > h_hght){
+            $("body").prepend(elem);
+            elem.removeClass('player').addClass("topNavFixed");
+            elem.find(".row").width(pageWidth).css('margin', '0 auto');
+            elem.css('width', '100%');
+            elem.css('top', h_mrg);
+        } else {
+            $(".content").prepend(elem);
+            elem.removeClass("topNavFixed").addClass('player');
+            elem.removeAttr('style');
+        }
+    }
 });
 
 function togglePlayButton() {

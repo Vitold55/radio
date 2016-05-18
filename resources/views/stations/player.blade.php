@@ -2,7 +2,7 @@
 
 @section('content')
 
-    <div class="player">
+    <div class="player" id="player">
         <div class="row">
             <div class="col-md-5">
                 <img src="/assets/images/logos/<?=$stations[0]['logo']?>.jpg" alt="<?=$stations[0]['name']?>" class="logoInPlayer">
