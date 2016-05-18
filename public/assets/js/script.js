@@ -60,6 +60,7 @@ $(document).ready(function() {
         var h_hght = 125; // висота шапки
         var h_mrg = 0;
         var elem = $('#player');
+        var logoBlock = $("#playerLogoBlock");
         var top = $(this).scrollTop();
         var pageWidth = $(".container").width();
 
@@ -69,10 +70,27 @@ $(document).ready(function() {
             elem.find(".row").width(pageWidth).css('margin', '0 auto');
             elem.css('width', '100%');
             elem.css('top', h_mrg);
+            logoBlock.removeClass('col-md-5').addClass('col-md-2');
+            if (logoBlock.parent().children().length < 4) {
+                logoBlock.before("<div class='col-md-3'></div>");
+            }
+            $(".sourceName").hide();
+            $(".logoInPlayer").css({'margin-top': 2, 'margin-right': 0});
+            if (logoBlock.parent().children().eq(0).children().length == 0) {
+                $(".logo").clone().appendTo(logoBlock.parent().children().eq(0));
+                $(".topNavFixed .logo").find('.fmka-logo').css('width', '50px');
+                $(".topNavFixed .logo a").append("<span class='fmka-fix-player-text'>FMka.in.ua</span>");
+            }
         } else {
             $(".content").prepend(elem);
             elem.removeClass("topNavFixed").addClass('player');
             elem.removeAttr('style');
+            logoBlock.removeClass('col-md-2').addClass('col-md-5');
+            if (logoBlock.parent().children().length >= 4) {
+                logoBlock.parent().children().eq(0).detach();
+            }
+            $(".sourceName").show();
+            $(".logoInPlayer").removeAttr('style');
         }
     }
 });
@@ -80,7 +98,9 @@ $(document).ready(function() {
 function togglePlayButton() {
     if (!audio.paused) {
         $("#play").hide();
+        $("#pause").show();
     } else {
         $("#play").show();
+        $("#pause").hide();
     }
 }

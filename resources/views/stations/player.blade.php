@@ -4,9 +4,9 @@
 
     <div class="player" id="player">
         <div class="row">
-            <div class="col-md-5">
+            <div class="col-md-5" id="playerLogoBlock">
                 <img src="/assets/images/logos/<?=$stations[0]['logo']?>.jpg" alt="<?=$stations[0]['name']?>" class="logoInPlayer">
-                <span class="sourceName"><?=$stations[0]['name']?>:</span>
+                <span class="sourceName"><?=$stations[0]['name']?></span>
             </div>
             <div class="col-md-2">
                 <input id="play" type="button" value="Play" />
@@ -21,6 +21,7 @@
     <script type="text/javascript">
             // Создаем новый объект Audio
             var audio = new Audio();
+            togglePlayButton();
             audio.preload = "auto";
             var volumeEl = document.getElementById('volume');
 

@@ -68,7 +68,7 @@ header .station-link:hover{
 }
 .logo{
     float: left;
-    padding: 0 30px 0 0;
+    padding: 0 20px 0 0;
 }
 .fmka-logo{
     width: 100px;
@@ -151,8 +151,22 @@ header .station-link:hover{
     width:300px;
     padding: 0;
 }
-ul.m__menu .menu-item > a, ul.m__menu .menu-item > a:visited{display:block;height:40px;line-height:40px;padding:0 0 0 20px;color:#005fab;font-size:16px;font-weight:normal;font-family:Verdana;text-decoration:none;-webkit-transition:background .5s cubic-bezier(.215,.61,.355,1) 0s;transition:background .5s cubic-bezier(.215,.61,.355,1) 0s;}
-.m__menu_subitem > a:hover,ul.m__menu .menu-item > a:hover, .m__menu_sublist_caption:hover, #sidebar_author a:hover, .wp-tag-cloud a:hover{background:#ebf7fb}
+ul.m__menu .menu-item > a, ul.m__menu .menu-item > a:visited{
+    display:block;
+    height:40px;
+    line-height:40px;
+    padding:0 0 0 20px;
+    color:#005fab;
+    font-size:16px;
+    font-weight:normal;
+    text-decoration:none;
+    -webkit-transition:background .5s cubic-bezier(.215,.61,.355,1) 0s;
+    transition:background .5s cubic-bezier(.215,.61,.355,1) 0s;
+}
+.m__menu_subitem > a:hover,ul.m__menu .menu-item > a:hover,
+.m__menu_sublist_caption:hover, #sidebar_author a:hover, .wp-tag-cloud a:hover{
+    background:#ebf7fb;
+}
 .m__menu li{
     list-style: none;
 }
@@ -216,12 +230,11 @@ ul.m__menu .menu-item > a, ul.m__menu .menu-item > a:visited{display:block;heigh
     background: url('../images/verstka/pause-button.png') no-repeat;
     background-size: contain;
     border: none;
-    padding: 18px;
+    padding: 22px;
     outline: none;
     color: transparent;
     font-size: 1px;
     cursor: pointer;
-    margin-left: 5px;
 }
 #volume{
     display: inline-block;
@@ -262,6 +275,19 @@ ul.m__menu .menu-item > a, ul.m__menu .menu-item > a:visited{display:block;heigh
     height: 40px;
     margin-right: 30px;
     margin-top: -10px;
+    border-radius: 3px;
+}
+.fmka-fix-player-text{
+    font-size: 24px;
+    text-align: left;
+    color: #115eb7;
+    font-family: 'Marck Script', cursive;
+    font-weight: bold;
+}
+
+footer{
+    padding: 20px 0 10px;
+    color: #115eb7;
 }
 
 /* Small devices (mobiles, 350px and less) */
