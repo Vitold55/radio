@@ -180,10 +180,10 @@ ul.m__menu .menu-item > a, ul.m__menu .menu-item > a:visited{
     position: fixed;
     z-index: 1000;
     margin: 0;
-    padding: 10px 0 15px;
+    padding: 10px 0;
     width: 100%;
     background: rgba(237, 249, 255, 1);
-    box-shadow: inset 0 -10px 30px -10px rgba(144, 220, 255, 0.9);
+    box-shadow: inset 0 -10px 40px -10px rgba(144, 220, 255, 0.9);
 }
 .topNavFixed>.row>div{
     text-align: center;
@@ -242,8 +242,21 @@ ul.m__menu .menu-item > a, ul.m__menu .menu-item > a:visited{
     padding: 10px 0;
 }
 .volume-block{
-    background: url('../images/verstka/volume-icon.png') no-repeat 35px 12px;
     background-size: 18px;
+    display: table-cell;
+    vertical-align: middle;
+}
+img.volume-mute{
+    width: 21px;
+    margin-top: -17px;
+    display: inline-block;
+    margin-right: 12px;
+    cursor: pointer;
+}
+@-moz-document url-prefix() {
+    img.volume-mute{
+        margin-top: -29px;
+    }
 }
 
 .logo-bl{}
@@ -258,7 +271,7 @@ ul.m__menu .menu-item > a, ul.m__menu .menu-item > a:visited{
     text-align: center;
     position: relative;
 }
-.stationsList ul>li:hover:after{
+.stationsList ul>li.stationLi:hover:after{
     content: '';
     position: absolute;
     top: 0;
@@ -266,6 +279,18 @@ ul.m__menu .menu-item > a, ul.m__menu .menu-item > a:visited{
     background: url('../images/verstka/play-button.png') rgba(0, 155, 227, 0.36) no-repeat center center;
     background-size: 70px;
     opacity: 0.95;
+    width: 100%;
+    height: 100%;
+    cursor: pointer;
+}
+li.activeStationLi:after{
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    background: url('../images/verstka/pause-button.png') rgba(0, 155, 227, 0.36) no-repeat center center;
+    background-size: 70px;
+    opacity: 0.9;
     width: 100%;
     height: 100%;
     cursor: pointer;
@@ -284,6 +309,100 @@ ul.m__menu .menu-item > a, ul.m__menu .menu-item > a:visited{
     font-family: 'Marck Script', cursive;
     font-weight: bold;
 }
+
+/* Volume range */
+input[type=range] {
+    -webkit-appearance: none;
+    margin: 9px 0;
+    width: 100%;
+    background-color: transparent;
+    -moz-outline-width: 0;
+}
+input[type=range]:focus {
+    outline: none;
+    border: 0;
+}
+input::-moz-focus-inner {
+    border: 0;
+    outline: none;
+}
+input[type=range]::-webkit-slider-runnable-track {
+    width: 100%;
+    height: 5px;
+    cursor: pointer;
+    animate: 0.2s;
+    box-shadow: 1px 1px 1px rgba(0, 128, 173, 0.2), 0px 0px 1px rgba(0, 128, 173, 0.1);
+    background: rgba(0, 155, 227, 0.6);
+    border-radius: 2px;
+    border: 0.2px solid rgba(0, 128, 173, 0.1);
+}
+input[type=range]::-webkit-slider-thumb {
+    box-shadow: inset 0 0 10px rgba(0, 155, 227, 0.9);
+    border: 1px solid rgba(0, 155, 227, .7);
+    height: 24px;
+    width: 14px;
+    border-radius: 3px;
+    background: #fff;
+    cursor: pointer;
+    -webkit-appearance: none;
+    margin-top: -11px;
+}
+input[type=range]::-moz-range-track {
+    width: 100%;
+    height: 5px;
+    cursor: pointer;
+    animate: 0.2s;
+    box-shadow: 1px 1px 1px rgba(0, 128, 173, 0.2), 0px 0px 1px rgba(0, 128, 173, 0.1);
+    background: rgba(0, 155, 227, 0.6);
+    border-radius: 2px;
+    border: 0.2px solid rgba(0, 128, 173, 0.1);
+}
+input[type=range]::-moz-range-thumb {
+    box-shadow: inset 0 0 10px rgba(0, 155, 227, 0.9);
+    border: 1px solid rgba(0, 155, 227, .7);
+    height: 22px;
+    width: 12px;
+    border-radius: 3px;
+    background: #fff;
+    cursor: pointer;
+    -webkit-appearance: none;
+    margin-top: -10px;
+}
+input[type=range]::-ms-track {
+    width: 100%;
+    height: 5px;
+    cursor: pointer;
+    animate: 0.2s;
+    box-shadow: 1px 1px 1px rgba(0, 128, 173, 0.2), 0px 0px 1px rgba(0, 128, 173, 0.1);
+    background: rgba(0, 155, 227, 0.6);
+    border-radius: 2px;
+    border: 0.2px solid rgba(0, 128, 173, 0.1);
+}
+input[type=range]::-ms-fill-lower {
+    background: #2a6495;
+    border: 0.2px solid #010101;
+    border-radius: 2.6px;
+    box-shadow: 1px 1px 1px #000000, 0px 0px 1px #0d0d0d;
+}
+input[type=range]::-ms-fill-upper {
+    background: #3071a9;
+    border: 0.2px solid #010101;
+    border-radius: 2.6px;
+    box-shadow: 1px 1px 1px #000000, 0px 0px 1px #0d0d0d;
+}
+input[type=range]::-ms-thumb {
+    box-shadow: inset 0 0 10px rgba(0, 155, 227, 0.9);
+    border: 1px solid rgba(0, 155, 227, .7);
+    height: 24px;
+    width: 14px;
+    border-radius: 3px;
+    background: #fff;
+    cursor: pointer;
+    -webkit-appearance: none;
+    margin-top: -11px;
+}
+
+
 
 footer{
     padding: 20px 0 10px;

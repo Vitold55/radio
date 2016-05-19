@@ -13,6 +13,7 @@
                 <input id="pause" type="button" value="Pause" />
             </div>
             <div class="col-md-4 volume-block">
+                <img src="<?=asset('/assets/images/verstka/volume-icon.png')?>" alt="Mute volume" class="volume-mute" title="Mute volume">
                 <input id="volume" type="range" min="0" max="100" value="30" />
             </div>
         </div>
@@ -34,6 +35,7 @@
                 audio.volume = parseFloat(volumeEl.value / 100);
                 audio.play();
                 togglePlayButton();
+                addActiveStationStyle();
             }, false);
 
             // Находим кнопку и прикрепляем метод на событие onclick
@@ -41,6 +43,7 @@
             pause.addEventListener('click', function () {
                 audio.pause();
                 togglePlayButton();
+                removeActiveStationStyle();
             }, false);
 
             // Найти HTML5-элемент input типа range и добавить обработчик события onchange для настройки звука
@@ -54,7 +57,7 @@
     <div class="stationsList">
         <ul>
             <?php foreach ($stations as $station) : ?>
-                <li class="col-lg-2 col-md-3 col-sm-3 col-xs-6 station-source" data-toggle="tooltip" data-placement="top" title="<?=$station['name']?>" data-source="<?=$station['source']?>" data-name="<?=$station['name']?>" data-logo="<?=$station['logo']?>">
+                <li class="col-lg-2 col-md-3 col-sm-3 col-xs-6 station-source stationLi" data-toggle="tooltip" data-placement="top" title="<?=$station['name']?>" data-source="<?=$station['source']?>" data-name="<?=$station['name']?>" data-logo="<?=$station['logo']?>">
                         <div class="logo-bl">
                             <img class="logo-img" src="/assets/images/logos/<?php echo $station['logo'] != null ? $station['logo'] : 'noimg' ?>.jpg" alt="<?=$station['name']?>">
                         </div>

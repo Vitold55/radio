@@ -22,6 +22,7 @@ $(document).ready(function() {
                 $('.logoInPlayer').attr('alt', name);
 
                 togglePlayButton();
+                addActiveStationStyle();
             /*}
             catch(e) {
                 alert("Error");
@@ -93,6 +94,32 @@ $(document).ready(function() {
             $(".logoInPlayer").removeAttr('style');
         }
     }
+
+    // Toogle mute volume
+    $('.volume-mute').click(function() {
+        volumeMute($(this));
+    });
+    function volumeMute(elem) {
+        var src = elem.attr('src');
+        if (!audio.muted) {
+            audio.muted = true;
+            elem.attr('src', src.replace(/\.png/, "-mute.png"));
+        } else {
+            audio.muted = false;
+            elem.attr('src', src.replace(/\-mute\.png/, ".png"));
+        }
+    }
+
+    // Stop playing radio by click on active station Li
+    /*var source = audio.getAttribute('src');
+    if (source != null) {
+        var activeStationLi = $(".stationsList>ul").find("[data-source='" + source + "']");
+        activeStationLi.click(function() {
+            removeActiveStationStyle();
+            audio.pause();
+        });
+    }*/
+
 });
 
 function togglePlayButton() {
@@ -103,4 +130,18 @@ function togglePlayButton() {
         $("#play").show();
         $("#pause").hide();
     }
+}
+
+// Add styles for active station
+function addActiveStationStyle() {
+    removeActiveStationStyle();
+    var source = audio.getAttribute('src');
+    var activeStationLi = $(".stationsList>ul").find("[data-source='" + source + "']");
+    activeStationLi.removeClass('stationLi').addClass('activeStationLi');
+}
+
+// Remove active styles for stations
+function removeActiveStationStyle() {
+    var activeStationLi = $(".activeStationLi");
+    activeStationLi.removeClass('activeStationLi').addClass('stationLi');
 }
