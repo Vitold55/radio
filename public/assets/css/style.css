@@ -236,6 +236,31 @@ ul.m__menu .menu-item > a, ul.m__menu .menu-item > a:visited{
     font-size: 1px;
     cursor: pointer;
 }
+#prev{
+    background: url('../images/verstka/previous-button.png') no-repeat;
+    background-size: contain;
+    border: none;
+    padding: 12px;
+    outline: none;
+    color: transparent;
+    font-size: 1px;
+    cursor: pointer;
+    margin-right: 15px;
+}
+#next{
+    background: url('../images/verstka/next-button.png') no-repeat;
+    background-size: contain;
+    border: none;
+    padding: 12px;
+    outline: none;
+    color: transparent;
+    font-size: 1px;
+    cursor: pointer;
+    margin-left: 15px;
+}
+#prev:disabled, #next:disabled{
+    display: none;
+}
 #volume{
     display: inline-block;
     width: 220px;
@@ -245,6 +270,7 @@ ul.m__menu .menu-item > a, ul.m__menu .menu-item > a:visited{
     background-size: 18px;
     display: table-cell;
     vertical-align: middle;
+    text-align: left;
 }
 img.volume-mute{
     width: 21px;
@@ -276,9 +302,9 @@ img.volume-mute{
     position: absolute;
     top: 0;
     left: 0;
-    background: url('../images/verstka/play-button.png') rgba(0, 155, 227, 0.36) no-repeat center center;
+    background: url('../images/verstka/play-button.png') rgba(235, 247, 253, 0.76) no-repeat center center;
     background-size: 70px;
-    opacity: 0.95;
+    opacity: 0.96;
     width: 100%;
     height: 100%;
     cursor: pointer;
@@ -288,12 +314,39 @@ li.activeStationLi:after{
     position: absolute;
     top: 0;
     left: 0;
-    background: url('../images/verstka/pause-button.png') rgba(0, 155, 227, 0.36) no-repeat center center;
-    background-size: 70px;
-    opacity: 0.9;
+    background: url('../images/verstka/equalizer.gif') rgba(235, 247, 253, 0.76) no-repeat center center;
+    background-size: 80px;
+    opacity: 1;
     width: 100%;
     height: 100%;
     cursor: pointer;
+}
+li.activeStationLi:hover:after{
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    background: url('../images/verstka/pause-button.png') rgba(235, 247, 253, 0.76) no-repeat center center;
+    background-size: 70px;
+    opacity: 0.92;
+    width: 100%;
+    height: 100%;
+    cursor: pointer;
+}
+li.errorStation:after{
+    content: 'В даний момент станція недоступна';
+    color: #c4002e;
+    font-size: 15px;
+    font-weight: bold;
+    padding: 20px 10px 10px;
+    position: absolute;
+    top: 0;
+    left: 0;
+    background: rgba(235, 247, 253, 0.76);
+    opacity: 1;
+    width: 100%;
+    height: 100%;
+    cursor: default;
 }
 
 .logoInPlayer{

@@ -6,31 +6,49 @@ $(document).ready(function() {
     }
 
     // Change station on Player
-    $(".station-source").click(function() {
-        var source = $(this).data('source');
-        var name = $(this).attr('data-name');
-        var logo = $(this).attr('data-logo');
-        if (audio) {
-            /*try {*/
-                audio.setAttribute('src', source);
-                audio.load();
-                var volume = $('#volume').val();
-                audio.volume = parseFloat(volume / 100);
-                audio.play();
-                $('.sourceName').text(name + ':');
-                $('.logoInPlayer').attr('src', '/assets/images/logos/' + logo + '.jpg');
-                $('.logoInPlayer').attr('alt', name);
-
-                togglePlayButton();
-                addActiveStationStyle();
-            /*}
-            catch(e) {
-                alert("Error");
-            }*/
+    $(".stationLi").click(function() {
+        if ($(this).hasClass("stationLi")) {
+            var source = $(this).data('source');
+            var name = $(this).attr('data-name');
+            var logo = $(this).attr('data-logo');
+            playStation(source, logo, name);
+        } else if ($(this).hasClass("activeStationLi")) {
+            // Stop playing radio by click on active station Li
+            removeActiveStationStyle();
+            audio.pause();
+            togglePlayButton();
         }
-
-
+        showNextPrevButtons();
     });
+
+    // Play radio station
+    function playStation(source, logo, name) {
+        if (audio) {
+            audio.setAttribute('src', source);
+            audio.load();
+
+            // Error checker
+            audio.onerror = function() {
+                var errorStationLi = $(".stationsList>ul").find("[data-source='" + source + "']");
+                errorStationLi.removeClass('activeStationLi').removeClass('stationLi').addClass('errorStation');
+            };
+            var volume = $('#volume').val();
+            audio.volume = parseFloat(volume / 100);
+            audio.play();
+            $('.sourceName').text(name);
+            $('.logoInPlayer').attr('src', '/assets/images/logos/' + logo + '.jpg');
+            $('.logoInPlayer').attr('alt', name);
+
+            togglePlayButton();
+            addActiveStationStyle();
+
+            // animate top scroll to active station
+            var activeStationLi = $(".stationsList>ul").find("[data-source='" + source + "']");
+            $('html, body').animate({
+                scrollTop: activeStationLi.offset().top - 315
+            }, 1000);
+        }
+    }
 
     // Init bootstrap tooltips
     $('[data-toggle="tooltip"]').tooltip();
@@ -71,7 +89,7 @@ $(document).ready(function() {
             elem.find(".row").width(pageWidth).css('margin', '0 auto');
             elem.css('width', '100%');
             elem.css('top', h_mrg);
-            logoBlock.removeClass('col-md-5').addClass('col-md-2');
+            logoBlock.removeClass('col-md-4').addClass('col-md-1');
             if (logoBlock.parent().children().length < 4) {
                 logoBlock.before("<div class='col-md-3'></div>");
             }
@@ -86,7 +104,7 @@ $(document).ready(function() {
             $(".content").prepend(elem);
             elem.removeClass("topNavFixed").addClass('player');
             elem.removeAttr('style');
-            logoBlock.removeClass('col-md-2').addClass('col-md-5');
+            logoBlock.removeClass('col-md-1').addClass('col-md-4');
             if (logoBlock.parent().children().length >= 4) {
                 logoBlock.parent().children().eq(0).detach();
             }
@@ -110,15 +128,45 @@ $(document).ready(function() {
         }
     }
 
-    // Stop playing radio by click on active station Li
-    /*var source = audio.getAttribute('src');
-    if (source != null) {
+    // Enabled/Disabled next, prev buttons call
+    showNextPrevButtons();
+
+    // Play next station
+    $("#next").click(function() {
+        var source = audio.getAttribute('src');
         var activeStationLi = $(".stationsList>ul").find("[data-source='" + source + "']");
-        activeStationLi.click(function() {
-            removeActiveStationStyle();
-            audio.pause();
-        });
-    }*/
+        playNextStation(activeStationLi);
+    });
+
+    // Play previous station
+    $("#prev").click(function() {
+        var needStationLi = '';
+        var source = audio.getAttribute('src');
+        var activeStationLi = $(".stationsList>ul").find("[data-source='" + source + "']");
+        if(activeStationLi.is(':first-child')) {
+            needStationLi = $(".stationsList>ul li").last();
+        } else {
+            needStationLi = activeStationLi.prev('li');
+        }
+        var needSource = needStationLi.attr('data-source');
+        var needLogo = needStationLi.attr('data-logo');
+        var needName = needStationLi.attr('data-name');
+        playStation(needSource, needLogo, needName);
+    });
+
+    // Play next station function
+    function playNextStation(activeStationLi) {
+        var needStationLi = '';
+        if(activeStationLi.is(':last-child')) {
+            needStationLi = $(".stationsList>ul li").first();
+        } else {
+            needStationLi = activeStationLi.next('li');
+        }
+        var needSource = needStationLi.attr('data-source');
+        var needLogo = needStationLi.attr('data-logo');
+        var needName = needStationLi.attr('data-name');
+        playStation(needSource, needLogo, needName);
+    }
 
 });
 
@@ -144,4 +192,15 @@ function addActiveStationStyle() {
 function removeActiveStationStyle() {
     var activeStationLi = $(".activeStationLi");
     activeStationLi.removeClass('activeStationLi').addClass('stationLi');
+}
+
+// Enabled/Disabled next, prev buttons
+function showNextPrevButtons() {
+    if (audio.paused) {
+        $("#prev").prop("disabled", true);
+        $("#next").prop("disabled", true);
+    } else {
+        $("#prev").prop("disabled", false);
+        $("#next").prop("disabled", false);
+    }
 }

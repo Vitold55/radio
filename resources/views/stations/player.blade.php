@@ -4,13 +4,15 @@
 
     <div class="player" id="player">
         <div class="row">
-            <div class="col-md-5" id="playerLogoBlock">
+            <div class="col-md-4" id="playerLogoBlock">
                 <img src="/assets/images/logos/<?=$stations[0]['logo']?>.jpg" alt="<?=$stations[0]['name']?>" class="logoInPlayer">
                 <span class="sourceName"><?=$stations[0]['name']?></span>
             </div>
-            <div class="col-md-2">
+            <div class="col-md-4">
+                <input id="prev" type="button" value="Previous" title="Попередня станція" />
                 <input id="play" type="button" value="Play" />
                 <input id="pause" type="button" value="Pause" />
+                <input id="next" type="button" value="Next" title="Наступна станція"/>
             </div>
             <div class="col-md-4 volume-block">
                 <img src="<?=asset('/assets/images/verstka/volume-icon.png')?>" alt="Mute volume" class="volume-mute" title="Mute volume">
@@ -36,6 +38,7 @@
                 audio.play();
                 togglePlayButton();
                 addActiveStationStyle();
+                showNextPrevButtons();
             }, false);
 
             // Находим кнопку и прикрепляем метод на событие onclick
@@ -44,6 +47,7 @@
                 audio.pause();
                 togglePlayButton();
                 removeActiveStationStyle();
+                showNextPrevButtons();
             }, false);
 
             // Найти HTML5-элемент input типа range и добавить обработчик события onchange для настройки звука
