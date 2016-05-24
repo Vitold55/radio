@@ -4,17 +4,17 @@
 
     <div class="player" id="player">
         <div class="row">
-            <div class="col-md-4" id="playerLogoBlock">
+            <div class="col-md-4 col-sm-4 col-xs-4" id="playerLogoBlock">
                 <img src="/assets/images/logos/<?=$stations[0]['logo']?>.jpg" alt="<?=$stations[0]['name']?>" class="logoInPlayer">
                 <span class="sourceName"><?=$stations[0]['name']?></span>
             </div>
-            <div class="col-md-4">
+            <div class="col-md-4 col-sm-4 col-xs-4">
                 <input id="prev" type="button" value="Previous" title="Попередня станція" />
                 <input id="play" type="button" value="Play" />
                 <input id="pause" type="button" value="Pause" />
                 <input id="next" type="button" value="Next" title="Наступна станція"/>
             </div>
-            <div class="col-md-4 volume-block">
+            <div class="col-md-4 col-sm-4 col-xs-4 volume-block">
                 <img src="<?=asset('/assets/images/verstka/volume-icon.png')?>" alt="Mute volume" class="volume-mute" title="Mute volume">
                 <input id="volume" type="range" min="0" max="100" value="30" />
             </div>

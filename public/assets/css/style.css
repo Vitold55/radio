@@ -178,7 +178,7 @@ ul.m__menu .menu-item > a, ul.m__menu .menu-item > a:visited{
 .topNavFixed{
     top: 125px;
     position: fixed;
-    z-index: 1000;
+    z-index: 10000;
     margin: 0;
     padding: 10px 0;
     width: 100%;
@@ -467,6 +467,47 @@ footer{
     .col-xs-6{
         width: 100%;
     }
+    .fmka-logo {
+        width: 80px;
+    }
+    .logo {
+        float: left;
+        padding: 0 10px 0 0;
+    }
+    .sourceName{
+        display: none !important;
+    }
+    .logoInPlayer {
+        margin-right: 0;
+        margin-top: 0;
+    }
+    #volume{
+        width: 200px;
+    }
+    .fmka-fix-player-text, .logo-second-line{
+        display: none;
+    }
+    .logo-first-line{
+        margin-top: 15px;
+    }
+    header h1 {
+        width: 135px;
+        font-size: 28px;
+    }
+    #player .row .col-xs-4 {
+        width: 100%;
+        margin: 5px 0 8px;
+    }
+    #player .row .col-xs-2:first-child {
+        display: none;
+    }
+    #player .row .col-xs-2:nth-child(2) {
+        width: 100%;
+        margin-bottom: 10px;
+    }
+    .volume-block {
+        text-align: center;
+    }
 }
 
 /* Small devices (mobiles, 767px and less) */
@@ -474,6 +515,39 @@ footer{
     .col-xs-6{
         width: 48%;
         margin: 0 1%;
+    }
+    .sourceName{
+        display: none !important;
+    }
+    .logoInPlayer {
+        margin-right: 0;
+        margin-top: 0;
+    }
+    #volume{
+        width: 200px;
+    }
+    .fmka-fix-player-text, .logo-second-line{
+        display: none;
+    }
+    .logo-first-line{
+        margin-top: 15px;
+    }
+    header h1 {
+        width: 150px;
+    }
+    #player .row .col-xs-4 {
+        width: 100%;
+        margin: 5px 0 8px;
+    }
+    #player .row .col-xs-2:first-child {
+        display: none;
+    }
+    #player .row .col-xs-2:nth-child(2) {
+        width: 100%;
+        margin-bottom: 10px;
+    }
+    .volume-block {
+        text-align: center;
     }
 }
 
@@ -483,6 +557,25 @@ footer{
         width: 31%;
         margin: 0 1.15%;
     }
+    .sourceName{
+        display: none !important;
+    }
+    .logoInPlayer {
+        margin-right: 0;
+        margin-top: 0;
+    }
+    #volume{
+        width: 100px;
+    }
+    .fmka-fix-player-text, .logo-second-line{
+        display: none;
+    }
+    .logo-first-line{
+        margin-top: 15px;
+    }
+    header h1 {
+        width: 350px;
+    }
 }
 
 /* Small devices (tablets, 768px and up) */
@@ -490,6 +583,19 @@ footer{
     .col-sm-3{
         width: 23%;
         margin: 0 1%;
+    }
+    .sourceName{
+        display: none !important;
+    }
+    .logoInPlayer {
+        margin-right: 0;
+        margin-top: 0;
+    }
+    #volume{
+        width: 150px;
+    }
+    .fmka-fix-player-text{
+        display: none;
     }
 }
 

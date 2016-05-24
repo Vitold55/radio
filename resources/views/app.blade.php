@@ -12,7 +12,7 @@
                     </div>
                     <h1>
                         <a href="/">
-                            <span>FMka.in.ua</span><span>онлайн радіо без меж</span>
+                            <span class="logo-first-line">FMka.in.ua</span><span class="logo-second-line">онлайн радіо без меж</span>
                         </a>
                     </h1>
                     <div class="menu_btn">

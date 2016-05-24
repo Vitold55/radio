@@ -43,9 +43,18 @@ $(document).ready(function() {
             addActiveStationStyle();
 
             // animate top scroll to active station
+            var topOffset = 515;
+            var screenWidth = $(window).width();
+            if (screenWidth > 768 && screenWidth < 991) {
+                topOffset = 415;
+            } else if (screenWidth > 551 && screenWidth <= 768) {
+                topOffset = 315;
+            } else if (screenWidth <= 550) {
+                topOffset = 250;
+            }
             var activeStationLi = $(".stationsList>ul").find("[data-source='" + source + "']");
             $('html, body').animate({
-                scrollTop: activeStationLi.offset().top - 315
+                scrollTop: activeStationLi.offset().top - topOffset
             }, 1000);
         }
     }
@@ -89,9 +98,9 @@ $(document).ready(function() {
             elem.find(".row").width(pageWidth).css('margin', '0 auto');
             elem.css('width', '100%');
             elem.css('top', h_mrg);
-            logoBlock.removeClass('col-md-4').addClass('col-md-1');
+            logoBlock.removeClass('col-md-4').removeClass('col-sm-4').removeClass('col-xs-4').addClass('col-md-1').addClass('col-sm-2').addClass('col-xs-2');
             if (logoBlock.parent().children().length < 4) {
-                logoBlock.before("<div class='col-md-3'></div>");
+                logoBlock.before("<div class='col-md-3 col-sm-2 col-xs-2'></div>");
             }
             $(".sourceName").hide();
             $(".logoInPlayer").css({'margin-top': 2, 'margin-right': 0});
@@ -104,7 +113,7 @@ $(document).ready(function() {
             $(".content").prepend(elem);
             elem.removeClass("topNavFixed").addClass('player');
             elem.removeAttr('style');
-            logoBlock.removeClass('col-md-1').addClass('col-md-4');
+            logoBlock.removeClass('col-md-1').removeClass('col-sm-2').removeClass('col-xs-2').addClass('col-md-4').addClass('col-sm-4').addClass('col-xs-4');
             if (logoBlock.parent().children().length >= 4) {
                 logoBlock.parent().children().eq(0).detach();
             }
