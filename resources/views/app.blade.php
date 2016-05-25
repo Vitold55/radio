@@ -39,5 +39,8 @@
         </div>
 
         <?=View::make('partials.menu');?>
+
+        <!-- Google Analytics -->
+        <?=View::make('partials.analytics');?>
     </body>
 </html>
