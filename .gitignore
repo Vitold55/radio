@@ -5,3 +5,4 @@ composer.lock
 .idea/
 /vendor
 /node_modules
+composer.lock

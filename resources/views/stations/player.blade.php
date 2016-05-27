@@ -21,6 +21,10 @@
         </div>
     </div>
 
+    @mobile
+        <?=View::make('partials.jsCssIncludes');?>
+    @endmobile
+
     <script type="text/javascript">
             // Создаем новый объект Audio
             var audio = new Audio();

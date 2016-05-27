@@ -15,7 +15,8 @@
         "phpunit/phpunit": "~4.0",
         "phpspec/phpspec": "~2.1",
         "guzzle/guzzle": "3.9.*",
-        "guzzlehttp/guzzle": "@stable"
+        "guzzlehttp/guzzle": "@stable",
+        "riverskies/laravel-mobile-detect": "@stable"
     },
     "autoload": {
         "classmap": [

@@ -40,7 +40,9 @@
 
         <?=View::make('partials.menu');?>
 
-        <!-- Google Analytics -->
-        <?=View::make('partials.analytics');?>
+        <?php if (env('APP_DEBUG') != true) : ?>
+            <!-- Google Analytics -->
+            <?=View::make('partials.analytics');?>
+        <?php endif; ?>
     </body>
 </html>
