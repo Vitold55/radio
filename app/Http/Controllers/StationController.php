@@ -8,18 +8,6 @@ use \Serverfireteam\Panel\CrudController;
 
 class StationController extends CrudController{
 
-	public function index() {
-
-		$stations = Station::where('available', '=', 1)
-			->orderBy('rating', 'asc')
-			->get()
-			->toArray();
-
-		return view('stations.player', [
-			'stations' => $stations,
-		]);
-	}
-
     public function all($entity){
         parent::all($entity); 
 

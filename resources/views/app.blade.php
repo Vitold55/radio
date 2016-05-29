@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html>
-    <?=View::make('partials.header');?>
+    <?=view('partials.header')->render();?>
     <body>
         <div class="container">
             <header>
@@ -35,14 +35,14 @@
                 </div>
             </div>
 
-            <?=View::make('partials.footer');?>
+            <?=View::make('partials.footer')->render();?>
         </div>
 
-        <?=View::make('partials.menu');?>
+        <?=View::make('partials.menu')->render();?>
 
         <?php if (env('APP_DEBUG') != true) : ?>
             <!-- Google Analytics -->
-            <?=View::make('partials.analytics');?>
+            <?=View::make('partials.analytics')->render();?>
         <?php endif; ?>
     </body>
 </html>

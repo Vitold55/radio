@@ -3,31 +3,27 @@
 namespace App\Http\Controllers;
 
 use App\Http\Requests;
-use App\Http\Controllers\Controller;
 use \Serverfireteam\Panel\CrudController;
-
-use Illuminate\Http\Request;
+use \App\Page as Page;
+use \App\Station as Station;
 
 class PageController extends CrudController{
 
     public function all($entity){
         parent::all($entity); 
 
-        /** Simple code of  filter and grid part , List of all fields here : http://laravelpanel.com/docs/master/crud-fields
+		$this->filter = \DataFilter::source(new Page);
+		$this->filter->add('title', 'Title', 'text');
+		$this->filter->add('alias', 'Alias', 'text');
+		$this->filter->submit('search');
+		$this->filter->reset('reset');
+		$this->filter->build();
 
-
-			$this->filter = \DataFilter::source(new \App\Category);
-			$this->filter->add('name', 'Name', 'text');
-			$this->filter->submit('search');
-			$this->filter->reset('reset');
-			$this->filter->build();
-
-			$this->grid = \DataGrid::source($this->filter);
-			$this->grid->add('name', 'Name');
-			$this->grid->add('code', 'Code');
-			$this->addStylesToGrid();
-
-        */
+		$this->grid = \DataGrid::source($this->filter);
+		$this->grid->add('alias', 'Alias');
+		$this->grid->add('title', 'Title');
+		$this->grid->add('publish', 'Published');
+		$this->addStylesToGrid();
                  
         return $this->returnView();
     }
@@ -35,20 +31,36 @@ class PageController extends CrudController{
     public function  edit($entity){
         
         parent::edit($entity);
+		$this->edit = \DataEdit::source(new Page());
 
-        /* Simple code of  edit part , List of all fields here : http://laravelpanel.com/docs/master/crud-fields
-	
-			$this->edit = \DataEdit::source(new \App\Category());
-
-			$this->edit->label('Edit Category');
-
-			$this->edit->add('name', 'Name', 'text');
-		
-			$this->edit->add('code', 'Code', 'text')->rule('required');
-
-
-        */
+		$this->edit->label('Add/Edit page');
+		$this->edit->add('alias', 'Alias', 'text')->rule('required');
+		$this->edit->add('title', 'Title', 'text')->rule('required');
+		$this->edit->add('keywords', 'Keywords', 'text')->rule('required');
+		$this->edit->add('description', 'Description', 'text')->rule('required');
+		$this->edit->add('text', 'Text', 'redactor');
+		$this->edit->add('publish', 'Publish', 'checkbox');
        
         return $this->returnEditView();
-    }    
+    }
+
+	public function index() {
+		$page = Page::where('alias', '/')->first()->toArray();
+		$stationObj = new Station();
+		$stations = $stationObj->getStations();
+
+		return view('pages.index', [
+				'page' => $page,
+				'stations' => $stations,
+		]);
+	}
+
+	public function page($alias) {
+		$page = Page::where(['alias' => $alias, 'publish'=> 1])->first()
+				->toArray();
+
+		return view('pages.page', [
+				'page' => $page,
+		]);
+	}
 }

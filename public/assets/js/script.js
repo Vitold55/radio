@@ -205,7 +205,7 @@ function removeActiveStationStyle() {
 
 // Enabled/Disabled next, prev buttons
 function showNextPrevButtons() {
-    if (audio.paused) {
+    if (typeof audio !== 'undefined' && audio.paused) {
         $("#prev").prop("disabled", true);
         $("#next").prop("disabled", true);
     } else {
