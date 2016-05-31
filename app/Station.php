@@ -6,7 +6,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class Station extends Model {
 
-    protected $table = 'stations';
+    public $table = 'stations';
     public $timestamps = false;
 
     public function getStations() {

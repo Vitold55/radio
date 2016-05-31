@@ -12,18 +12,23 @@ $(document).ready(function() {
             selectedArr.push(parseInt($(this).attr('id')));
         });
         var stationId = $("#fg_id #id").val();
+        var matches = /modify=([^&#=]*)/.exec(window.location.search);
+        var oldStationId = 0;
+        if (matches != null) {
+            oldStationId = matches[1];
+        }
+
         var formData = {
             categories : JSON.stringify(selectedArr),
-            stationId : stationId
+            stationId : stationId,
+            oldStationId : oldStationId
         };
 
         $.ajax({
             type: 'POST',
             url: '/saveStToCat',
             data: formData,
-            success: function(data){
-                debugger;
-            }
+            success: function(){}
         });
     });
 });
