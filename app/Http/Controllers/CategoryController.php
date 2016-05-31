@@ -22,6 +22,7 @@ class CategoryController extends CrudController{
 		$this->grid = \DataGrid::source($this->filter);
 		$this->grid->add('id', 'Id');
 		$this->grid->add('name', 'Name');
+		$this->grid->add('available', 'Available');
 		$this->addStylesToGrid();
                  
         return $this->returnView();
@@ -34,6 +35,7 @@ class CategoryController extends CrudController{
 		$this->edit = \DataEdit::source(new \App\Category());
 		$this->edit->label('Add / Edit Category');
 		$this->edit->add('name', 'Name', 'text')->rule('required');
+		$this->edit->add('available', 'Available', 'checkbox');
 
         return $this->returnEditView();
     }    

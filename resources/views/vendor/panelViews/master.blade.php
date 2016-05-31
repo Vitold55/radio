@@ -39,6 +39,7 @@
 
     <!-- jQuery Version 1.11.0 -->
     <script src="{{asset("packages/serverfireteam/panel/js/jquery-1.11.0.js")}}"></script>
+    <script src="{{asset("assets/js/adminPanelScripts.js")}}"></script>
 
 </head>
 

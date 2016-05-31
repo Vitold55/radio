@@ -9,4 +9,11 @@ class Category extends Model {
     protected $table = 'categories';
     public $timestamps = false;
 
+    static public function getCategories() {
+        return self::where('available', '=', 1)
+            ->orderBy('id', 'asc')
+            ->get()
+            ->toArray();
+    }
+
 }

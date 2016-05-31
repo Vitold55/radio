@@ -15,4 +15,5 @@ class Station extends Model {
             ->get()
             ->toArray();
     }
+
 }
