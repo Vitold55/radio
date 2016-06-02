@@ -461,6 +461,34 @@ input[type=range]::-ms-thumb {
     padding: 0 40px;
 }
 
+/* Categories navigation */
+nav.categories {
+    box-shadow: inset 0 0 5px rgba(0, 155, 227, 0.7);
+    margin: 5px 0 35px;
+    border-radius: 3px;
+}
+.cat-menu {
+    padding: 0;
+}
+.cat-menu li{
+    list-style: none;
+    float: left;
+    margin: 9px 5px;
+}
+.cat-menu li:first-child{
+    margin-left: 30px;
+}
+.cat-menu li a{
+    display: inline-block;
+    padding: 3px 12px;
+}
+.cat-menu li a.active{
+    box-shadow: inset 0 0 2px rgba(0, 155, 227, 0.4);
+    border-radius: 3px;
+    background: rgba(0, 155, 227, 0.1);
+}
+/* End categories navigation */
+
 .prefooter{
     height: 60px;
 }

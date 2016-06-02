@@ -6,9 +6,53 @@ use App\Http\Requests;
 use \Serverfireteam\Panel\CrudController;
 use \App\Page as Page;
 use \App\Station as Station;
+use \App\Category as Category;
 
 class PageController extends CrudController{
 
+	public function index() {
+		$page = Page::where('alias', '/')->first()->toArray();
+		$stationObj = new Station();
+		$stations = $stationObj->getStations();
+		$categories = Category::getCategories();
+
+		return view('pages.index', [
+			'page' => $page,
+			'stations' => $stations,
+			'categories' => $categories,
+		]);
+	}
+
+	public function page($alias) {
+		$page = Page::where(['alias' => $alias, 'publish'=> 1])->first()
+			->toArray();
+
+		return view('pages.page', [
+			'page' => $page,
+		]);
+	}
+
+	/**
+	 * Page by music category
+	 * @param $alias
+	 * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
+	 */
+	public function category($alias) {
+		$page = Page::where(['alias' => $alias, 'publish'=> 1])->first()
+			->toArray();
+		$stationObj = new Station();
+		$stations = $stationObj->getStationsByCategoryAlias($alias);
+
+		$categories = Category::getCategories();
+
+		return view('pages.index', [
+			'page' => $page,
+			'stations' => $stations,
+			'categories' => $categories,
+		]);
+	}
+
+	// For admin panel
     public function all($entity){
         parent::all($entity); 
 
@@ -44,23 +88,4 @@ class PageController extends CrudController{
         return $this->returnEditView();
     }
 
-	public function index() {
-		$page = Page::where('alias', '/')->first()->toArray();
-		$stationObj = new Station();
-		$stations = $stationObj->getStations();
-
-		return view('pages.index', [
-				'page' => $page,
-				'stations' => $stations,
-		]);
-	}
-
-	public function page($alias) {
-		$page = Page::where(['alias' => $alias, 'publish'=> 1])->first()
-				->toArray();
-
-		return view('pages.page', [
-				'page' => $page,
-		]);
-	}
 }

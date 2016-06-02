@@ -10,6 +10,11 @@ Route::get('{alias}-page', [
     'uses' => 'PageController@page'
 ]);
 
+Route::get('{alias}-stations', [
+    'as' => 'page:category',
+    'uses' => 'PageController@category'
+]);
+
 
 // Ajax requests routes
 Route::post('saveStToCat', [

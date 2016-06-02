@@ -26,7 +26,7 @@
     </div>
 
     @mobile
-    <?=View::make('partials.jsCssIncludes');?>
+        <?=View::make('partials.jsCssIncludes');?>
     @endmobile
 
     <script type="text/javascript">
@@ -66,6 +66,9 @@
         }, false);
     </script>
 
+    <!-- Categories menu -->
+    <?=view('partials.categoriesMenu')->with('categories', $categories)->render();?>
+
     <div class="stationsList">
         <ul>
             <?php foreach ($stations as $station) : ?>
@@ -77,6 +80,10 @@
             <?php endforeach; ?>
         </ul>
         <div class="clear"></div>
+    </div>
+
+    <div class="page">
+        <?=$page['text']?>
     </div>
 
 @stop
