@@ -15,6 +15,7 @@ class CategoryController extends CrudController{
 
 		$this->filter = \DataFilter::source(new \App\Category);
 		$this->filter->add('name', 'Name', 'text');
+		$this->filter->add('alias', 'Alias', 'text');
 		$this->filter->submit('search');
 		$this->filter->reset('reset');
 		$this->filter->build();
@@ -22,6 +23,7 @@ class CategoryController extends CrudController{
 		$this->grid = \DataGrid::source($this->filter);
 		$this->grid->add('id', 'Id');
 		$this->grid->add('name', 'Name');
+		$this->grid->add('alias', 'Alias');
 		$this->grid->add('available', 'Available');
 		$this->addStylesToGrid();
                  
@@ -35,6 +37,7 @@ class CategoryController extends CrudController{
 		$this->edit = \DataEdit::source(new \App\Category());
 		$this->edit->label('Add / Edit Category');
 		$this->edit->add('name', 'Name', 'text')->rule('required');
+		$this->edit->add('alias', 'Alias', 'text')->rule('required');
 		$this->edit->add('available', 'Available', 'checkbox');
 
         return $this->returnEditView();
