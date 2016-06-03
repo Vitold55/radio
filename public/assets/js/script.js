@@ -94,6 +94,7 @@ $(document).ready(function() {
 
         if(top > h_hght){
             $("body").prepend(elem);
+            $(".content").addClass("mt-75");
             elem.removeClass('player').addClass("topNavFixed");
             elem.find(".row").width(pageWidth).css('margin', '0 auto');
             elem.css('width', '100%');
@@ -110,7 +111,7 @@ $(document).ready(function() {
                 $(".topNavFixed .logo a").append("<span class='fmka-fix-player-text'>FMka.in.ua</span>");
             }
         } else {
-            $(".content").prepend(elem);
+            $(".content").removeClass("mt-75").prepend(elem);
             elem.removeClass("topNavFixed").addClass('player');
             elem.removeAttr('style');
             logoBlock.removeClass('col-md-1').removeClass('col-sm-2').removeClass('col-xs-2').addClass('col-md-4').addClass('col-sm-4').addClass('col-xs-4');

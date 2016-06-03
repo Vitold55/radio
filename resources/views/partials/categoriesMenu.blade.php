@@ -8,6 +8,6 @@
                 <a href="{{ $category['alias'] . '-stations' }}" <?php echo preg_match('/' . $category['alias'] . '/', $_SERVER['REQUEST_URI']) ? 'class="active"' : ''; ?>>{{ $category['name'] }}</a>
             </li>
         @endforeach
+        <div class="clear"></div>
     </ul>
-    <div class="clear"></div>
 </nav>

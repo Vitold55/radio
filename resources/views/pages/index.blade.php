@@ -64,6 +64,11 @@
             audio.volume = volumeValue;
             setTimeout($.cookie("volume", volumeValue * 100), 2000);
         }, false);
+        volume.addEventListener('change', function () {
+            var volumeValue = parseFloat(volumeEl.value / 100);
+            audio.volume = volumeValue;
+            setTimeout($.cookie("volume", volumeValue * 100), 2000);
+        }, false);
     </script>
 
     <!-- Categories menu -->
@@ -83,7 +88,7 @@
     </div>
 
     <div class="page">
-        <?=$page['text']?>
+        <?//=$page['text']?>
     </div>
 
 @stop

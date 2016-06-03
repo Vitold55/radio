@@ -52,7 +52,7 @@ header h1{
     font-size: 30px;
     text-align: left;
     float: left;
-    width: 400px;
+    width: 300px;
     color: #115eb7;
     font-family: 'Marck Script', cursive;
     font-weight: bold;
@@ -468,15 +468,12 @@ nav.categories {
     border-radius: 3px;
 }
 .cat-menu {
-    padding: 0;
+    padding: 0 35px;
 }
 .cat-menu li{
     list-style: none;
     float: left;
     margin: 9px 5px;
-}
-.cat-menu li:first-child{
-    margin-left: 30px;
 }
 .cat-menu li a{
     display: inline-block;
@@ -488,6 +485,17 @@ nav.categories {
     background: rgba(0, 155, 227, 0.1);
 }
 /* End categories navigation */
+
+.mt-75{
+    margin-top: 110px;
+}
+
+/* Top banner */
+.top-banner{
+    float: left;
+    width: 600px;
+}
+/* End top banner */
 
 .prefooter{
     height: 60px;
@@ -547,6 +555,9 @@ footer{
     .volume-block {
         text-align: center;
     }
+    .top-banner{
+        display: none;
+    }
 }
 
 /* Small devices (mobiles, 767px and less) */
@@ -588,6 +599,9 @@ footer{
     .volume-block {
         text-align: center;
     }
+    .top-banner{
+        display: none;
+    }
 }
 
 /* Small devices (mobiles) */
@@ -615,6 +629,9 @@ footer{
     header h1 {
         width: 350px;
     }
+    .top-banner{
+        display: none;
+    }
 }
 
 /* Small devices (tablets, 768px and up) */
@@ -636,6 +653,9 @@ footer{
     .fmka-fix-player-text{
         display: none;
     }
+    .top-banner{
+        display: none;
+    }
 }
 
 /* Medium devices (desktops, 992px and up) */
@@ -643,6 +663,15 @@ footer{
     .col-md-3{
         width: 23%;
         margin: 0 1%;
+    }
+    header h1 {
+        width: 280px;
+    }
+    .logo {
+        padding: 0 10px 0 0;
+    }
+    .top-banner {
+        width: 500px;
     }
 }
 

@@ -15,6 +15,11 @@
                             <span class="logo-first-line">FMka.in.ua</span><span class="logo-second-line">онлайн радіо без меж</span>
                         </a>
                     </h1>
+                    <div class="top-banner">
+                        <?php if (date('d') == '03') : ?>
+                        <img src="<?=asset('/assets/images/banners/top-banners/fmks-ban1.png')?>" class="top-banner-img">
+                        <?php endif; ?>
+                    </div>
                     <div class="menu_btn">
                         <i></i>
                         <i class="menu_first"></i>
