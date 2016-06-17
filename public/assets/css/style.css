@@ -456,6 +456,20 @@ input[type=range]::-ms-thumb {
     margin-top: -11px;
 }
 
+.content{
+    font-size: 15px;
+}
+.content h1{
+    margin: 20px 0;
+}
+.content ul{
+    margin: 0 0 0 20px;
+}
+.content ul li{
+    margin: 5px 0 5px 10px;
+    text-align: left;
+    list-style: circle;
+}
 .page p{
     text-align: left;
     padding: 0 40px;
@@ -507,6 +521,9 @@ footer{
     bottom: 0;
     left: 0;
     right: 0;
+}
+.footer-link{
+    color: #115eb7;
 }
 
 /* Small devices (mobiles, 350px and less) */
