@@ -87,8 +87,12 @@
         <div class="clear"></div>
     </div>
 
-    <div class="page">
-        <?//=$page['text']?>
-    </div>
+    <?php if ($_SERVER['REQUEST_URI'] == '/') : ?>
+        <div class="page">
+            <div class="stations-page-text">
+                <?=$page['text']?>
+            </div>
+        </div>
+    <?php endif; ?>
 
 @stop

@@ -462,17 +462,24 @@ input[type=range]::-ms-thumb {
 .content h1{
     margin: 20px 0;
 }
-.content ul{
+.content ul.articles-ul{
     margin: 0 0 0 20px;
 }
-.content ul li{
+.content ul.articles-ul li{
     margin: 5px 0 5px 10px;
     text-align: left;
     list-style: circle;
 }
+
+.page {
+    margin: 15px 0;
+}
 .page p{
-    text-align: left;
+    text-align: justify;
     padding: 0 40px;
+}
+.page .stations-page-text{
+    font-size: 13px;
 }
 
 /* Categories navigation */
@@ -575,6 +582,9 @@ footer{
     .top-banner{
         display: none;
     }
+    .stations-page-text{
+        display: none;
+    }
 }
 
 /* Small devices (mobiles, 767px and less) */
@@ -619,6 +629,9 @@ footer{
     .top-banner{
         display: none;
     }
+    .stations-page-text{
+        display: none;
+    }
 }
 
 /* Small devices (mobiles) */
@@ -647,6 +660,9 @@ footer{
         width: 350px;
     }
     .top-banner{
+        display: none;
+    }
+    .stations-page-text{
         display: none;
     }
 }
